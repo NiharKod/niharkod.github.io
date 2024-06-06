@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nihar Kodkani</title>
-    <link>https://niharkod.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Nihar Kodkani</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 May 2024 22:09:21 -0400</lastBuildDate>
-    <atom:link href="https://niharkod.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First_post</title>
-      <link>https://niharkod.github.io/posts/first_post/</link>
+      <title>GeoSpy AI</title>
+      <link>http://localhost:1313/posts/geospy/</link>
       <pubDate>Fri, 31 May 2024 22:09:21 -0400</pubDate>
-      <guid>https://niharkod.github.io/posts/first_post/</guid>
-      <description>Hello this is some sort of content.</description>
+      <guid>http://localhost:1313/posts/geospy/</guid>
+      <description>So a couple weeks ago I ran across another AI tool. It&amp;rsquo;s called Geospy.ai. The unique thing about this tool is that it can pretty much find the location of any image that you give it. I was a bit skeptical of it originally, but I decided to upload a few images from my camera roll to see what it could do. `</description>
     </item>
   </channel>
 </rss>
