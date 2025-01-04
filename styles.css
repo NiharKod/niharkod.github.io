@@ -1,5 +1,10 @@
 /* Reset margin and padding */
+
+  
 * {
+    font-family: "Mulish", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,9 +12,10 @@
   
   /* Body styles */
   body {
-    font-family: Arial, sans-serif;
-    background-color: #d5d8ff; /* Light background */
-    color: #131313; /* Dark text color */
+    background-color: #000000; /* Light background */
+    color: #8a82ff; /* Dark text color */
+    background-image: radial-gradient(#2a2a2a 1px, transparent 1px);
+    background-size: 20px 20px; /* Size of the dots and spacing */
   }
   
   /* Header and navigation bar styles */
@@ -24,13 +30,17 @@
   }
   
   nav a {
-    color: rgb(22, 22, 22);
+    color: rgb(117, 156, 255);
     text-decoration: none;
     font-size: 1.1rem;
+    /* background-color: rgb(183, 207, 252); */
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s;
   }
   
   nav a:hover {
-    text-decoration: underline; /* Underline effect on hover */
+    transform: translateY(-3px);
   }
   
   /* Main section styles */
@@ -40,12 +50,12 @@
     align-items: center;
     min-height: 100vh; /* Ensure it takes full viewport height */
   }
-  
+
   .intro {
     text-align: center;
     padding: 20px;
-    background-color: rgb(161, 194, 255);
-    border-radius: 8px;
+    /* background-color: rgb(183, 207, 252); */
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
     max-width: 600px; /* Limit the width of the content */
   }
@@ -61,3 +71,5 @@
     line-height: 1.6;
     margin-bottom: 10px;
   }
+
+  
