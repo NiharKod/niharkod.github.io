@@ -1,0 +1,63 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #d5d8ff; /* Light background */
+    color: #131313; /* Dark text color */
+  }
+  
+  /* Header and navigation bar styles */
+  header {
+    padding: 1rem;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between links */
+  }
+  
+  nav a {
+    color: rgb(22, 22, 22);
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  nav a:hover {
+    text-decoration: underline; /* Underline effect on hover */
+  }
+  
+  /* Main section styles */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes full viewport height */
+  }
+  
+  .intro {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(161, 194, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+    max-width: 600px; /* Limit the width of the content */
+  }
+
+
+  .intro h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
