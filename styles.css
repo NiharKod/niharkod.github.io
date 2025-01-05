@@ -12,14 +12,26 @@
   body {
     background-color: #000000; /* Light background */
     color: #8a82ff; /* Dark text color */
-    background-image: radial-gradient(#2a2a2a 1px, transparent 1px);
+    background-image: radial-gradient(#867bff 0.4px, transparent 0.1px);
     background-size: 20px 20px; /* Size of the dots and spacing */
     height: 100vh; /* Ensure full height */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align header, main, and footer properly */
     overflow: hidden; /* Prevent scrolling */
+    animation: move-dots 5s linear infinite; /* Animation to move the dots */
   }
+
+  /* Keyframes for the animation */
+  @keyframes move-dots {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 20px 20px; /* Moves the dots diagonally */
+    }
+  }
+  
   
   /* Header and navigation bar styles */
   header {
