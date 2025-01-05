@@ -18,7 +18,7 @@
   
   /* Header and navigation bar styles */
   header {
-    padding: 1rem;
+    padding: 1.1rem;
   }
   
   nav {
@@ -31,7 +31,7 @@
     color: rgb(117, 156, 255);
     text-decoration: none;
     font-size: 1.1rem;
-    padding: 10px 35px;
+    padding: .5rem 1.5rem;
     border-radius: 15px;
     border: 2px solid rgb(117, 156, 255); /* Add border */
     transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
@@ -75,13 +75,13 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 40px; /* Add space between intro and social icons */
+    margin-top: 15px; /* Add space between intro and social icons */
   }
   
   .social-icons a {
     color: #8a82ff; /* Icon color */
     font-size: 2rem; /* Icon size */
-    transition: transform 0.3s, color 0.3s;
+    transition: transform 0.3s ease, color 0.3s ease;
   }
   
   .social-icons a:hover {
