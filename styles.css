@@ -14,6 +14,11 @@
     color: #8a82ff; /* Dark text color */
     background-image: radial-gradient(#2a2a2a 1px, transparent 1px);
     background-size: 20px 20px; /* Size of the dots and spacing */
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align header, main, and footer properly */
+    overflow: hidden; /* Prevent scrolling */
   }
   
   /* Header and navigation bar styles */
@@ -31,7 +36,7 @@
     color: rgb(117, 156, 255);
     text-decoration: none;
     font-size: 1.1rem;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 15px;
     border: 2px solid rgb(117, 156, 255); /* Add border */
     transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
@@ -47,9 +52,9 @@
   main {
     display: flex;
     flex-direction: column; /* Stack sections vertically */
-    justify-content: center; /* Align items from the top */
+    justify-content: center; /* Align items vertically */
     align-items: center; /* Center horizontally */
-    min-height: 100vh; /* Ensure it takes full viewport height */
+    flex: 1; /* Allow main to take up remaining space */
   }
   
   .intro {
@@ -87,4 +92,11 @@
   .social-icons a:hover {
     color: #ffffff; /* Hover color */
     transform: scale(1.2); /* Slight zoom effect */
+  }
+  
+  /* Footer styles */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #8a82ff; /* Icon color */
   }
