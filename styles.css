@@ -86,7 +86,14 @@
     font-size: 1.2rem;
     margin-bottom: 15px; /* Add spacing between list items */
     color: #ffffff; /* Dark text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+    font-weight: 500; /* Make the text slightly bolder */
     padding: 0;
+  }
+  .writing ul li a:hover {
+    color: #8a82ff; /* Change color on hover */
+    text-decoration: underline; /* Underline on hover */
   }
   
   .intro {
