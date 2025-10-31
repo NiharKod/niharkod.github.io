@@ -17,9 +17,9 @@ body {
 .layout {
   display: flex;
   align-items: flex-start;
-  gap: 2.4rem;                /* slightly tighter gap */
+  gap: 2.4rem;
   margin-top: 6rem;
-  margin-left: 8vw;           /* anchored left like Ayush's */
+  margin-left: 8vw;
   max-width: 900px;
 }
 
@@ -31,23 +31,41 @@ nav ul {
 }
 
 nav li {
-  margin-bottom: 0.001rem;      /* tighter spacing between links */
+  margin-bottom: 0.001rem;
 }
 
+/* Smooth underline and color transition */
 nav a {
-  text-decoration: underline;      
+  position: relative;
   font-weight: 600;
   color: #46559e;
   font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.25s ease-in-out;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #2e3a7d;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* ========== Main Content ========== */
 main {
-  max-width: 540px; /* matches his narrow text column */
+  max-width: 540px;
 }
 
 h1 {
@@ -61,31 +79,52 @@ p {
   margin-bottom: 1.1rem;
 }
 
-/* Links inside text */
+/* ========== Inline Links with Highlight Animation ========== */
+/* ========== Inline Links with Highlight Animation ========== */
 main a {
-  color: #3b6fc3;
+  position: relative;
+  color: #111;
   text-decoration: none;
+  font-weight: 500;
+  padding: 0 2px;
+  transition: color 0.2s ease-in-out;
+  z-index: 0; /* creates stacking context for ::before */
+}
+
+main a::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
+  width: 0;
+  background: rgba(184, 193, 255, 0.45); /* soft yellow highlighter */
+  z-index: -1; /* sits behind text */
+  transition: width 0.35s ease-in-out;
+  border-radius: 3px;
+}
+
+main a:hover::before {
+  width: 100%;
 }
 
 main a:hover {
-  text-decoration: underline;
+  color: #000; /* slight contrast */
 }
 
 /* ========== Responsive (Mobile) ========== */
 @media (max-width: 700px) {
   .layout {
-    flex-direction: column;   /* stack vertically */
+    flex-direction: column;
     margin: 3rem 2rem;
     gap: 1.5rem;
   }
 
   nav ul {
-    display: flex;            /* horizontal top bar */
+    display: flex;
     gap: 1.0rem;
   }
 
   nav li {
-    margin-bottom: 0;         /* remove vertical spacing */
+    margin-bottom: 0;
   }
 
   nav a {
