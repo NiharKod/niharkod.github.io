@@ -8,32 +8,61 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-
-  <title>Nihar</title>
+  <title>Nihar — Projects</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <nav>
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="projects.html">projects</a>
-        <a href="writing.html">writing</a>
-        <a href="reading_list.html">reading list</a>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="projects.html">projects</a>
+      <a href="writing.html">writing</a>
+      <a href="reading_list.html">reading list</a>
     </nav>
   </header>
 
-  <main class = "centered">
-        <section class="intro">
-          <h1>under construction ⚠️</h1>
-            </section>
-      
-        </section>
+  <main class="centered">
+    <section id="projects" class="projects">
+      <h1>Projects</h1>
+      <div class="project-list">
+        <!-- Card #1 -->
+        <div class="card">
+          <img src="img/allreduce.png" alt="Project One screenshot">
+          <div class="card-content">
+            <h3>Project One</h3>
+            <p>A brief one- or two-sentence description of what Project One does.</p>
+            <div class="card-links">
+              <a href="projects/project1.html" class="card-button">Learn more</a>
+              <a href="https://github.com/niharkod/project1" target="_blank" class="github-button">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card #2 -->
+        <div class="card">
+          <img src="images/project2.jpg" alt="Project Two screenshot">
+          <div class="card-content">
+            <h3>Project Two</h3>
+            <p>A brief one- or two-sentence description of what Project Two does.</p>
+            <div class="card-links">
+              <a href="projects/project2.html" class="card-button">Learn more</a>
+              <a href="https://github.com/niharkod/project2" target="_blank" class="github-button">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more .card blocks here -->
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Nihar Kodkani</p>
-</footer>
-
- </body>
+  </footer>
+</body>
 </html>

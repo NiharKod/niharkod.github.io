@@ -1,144 +1,99 @@
-/* Reset margin and padding */
-* {
-    font-family: "Mulish", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body styles */
-  body {
-    background-color: #000000; /* Light background */
-    color: #8a82ff; /* Dark text color */
-    background-image: radial-gradient(#867bff 0.4px, transparent 0.1px);
-    background-size: 20px 20px; /* Size of the dots and spacing */
-    height: 100vh; /* Ensure full height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Align header, main, and footer properly */
-    overflow: hidden; /* Prevent scrolling */
-    animation: move-dots 5s linear infinite; /* Animation to move the dots */
+/* ========== Base Typography ========== */
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #111;
+  background: #fff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ========== Layout ========== */
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.4rem;                /* slightly tighter gap */
+  margin-top: 6rem;
+  margin-left: 8vw;           /* anchored left like Ayush's */
+  max-width: 900px;
+}
+
+/* ========== Nav ========== */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 0.001rem;      /* tighter spacing between links */
+}
+
+nav a {
+  text-decoration: underline;      
+  font-weight: 600;
+  color: #46559e;
+  font-size: 14px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Main Content ========== */
+main {
+  max-width: 540px; /* matches his narrow text column */
+}
+
+h1 {
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+}
+
+/* Links inside text */
+main a {
+  color: #3b6fc3;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Responsive (Mobile) ========== */
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;   /* stack vertically */
+    margin: 3rem 2rem;
+    gap: 1.5rem;
   }
 
-  /* Keyframes for the animation */
-  @keyframes move-dots {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 20px 20px; /* Moves the dots diagonally */
-    }
+  nav ul {
+    display: flex;            /* horizontal top bar */
+    gap: 1.0rem;
   }
-  
-  
-  /* Header and navigation bar styles */
-  header {
-    padding: 1.1rem;
+
+  nav li {
+    margin-bottom: 0;         /* remove vertical spacing */
   }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 35px; /* Space between links */
-  }
-  
+
   nav a {
-    color: rgb(117, 156, 255);
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
-    border-radius: 15px;
-    border: 2px solid rgb(117, 156, 255); /* Add border */
-    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: #000000;
-    background-color: rgb(117, 156, 255);
-    transform: translateY(-3px);
-  }
-  
-  /* Main section styles */
-  .centered {
-    display: flex;
-    flex-direction: column; /* Stack sections vertically */
-    justify-content: center; /* Align items vertically */
-    align-items: center; /* Center horizontally */
-    flex: 1; /* Allow main to take up remaining space */
-  }
-  
-  .writing {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    flex: 1
+    font-size: 15px;
   }
 
-  .writing ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the list items horizontally */
+  main {
+    margin-left: 0;
+    max-width: 100%;
   }
-
-  .writing ul li a{
-    font-size: 1.2rem;
-    margin-bottom: 15px; /* Add spacing between list items */
-    color: #ffffff; /* Dark text color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
-    font-weight: 500; /* Make the text slightly bolder */
-    padding: 0;
-  }
-  .writing ul li a:hover {
-    color: #8a82ff; /* Change color on hover */
-    text-decoration: underline; /* Underline on hover */
-  }
-  
-  .intro {
-    text-align: center;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
-    max-width: 600px; /* Limit the width of the content */
-  }
-  
-  .intro h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .intro p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-  
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 0px; /* Add space between intro and social icons */
-  }
-  
-  .social-icons a {
-    color: #8a82ff; /* Icon color */
-    font-size: 2rem; /* Icon size */
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    color: #ffffff; /* Hover color */
-    transform: scale(1.2); /* Slight zoom effect */
-  }
-  
-  /* Footer styles */
-  footer {
-    text-align: center;
-    padding: 1rem;
-    color: #8a82ff; /* Icon color */
-  }
+}
