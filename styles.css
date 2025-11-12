@@ -136,3 +136,93 @@ main a:hover {
     max-width: 100%;
   }
 }
+
+/* ========== Social Icons (Footer) ========== */
+.site-footer {
+  margin-top: 1.6rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 8px;
+  transition: transform 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+  position: relative; /* for the highlight pseudo-element */
+  z-index: 0;
+}
+
+.social-link svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.social-link img {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+/* Highlight-style animated background similar to inline link highlighter */
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: var(--social-bg, rgba(184, 193, 255, 0.18));
+  border-radius: inherit;
+  z-index: -1; /* sit behind the icon */
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1);
+}
+
+.social-link:hover::before,
+.social-link:focus::before,
+.social-link:focus-visible::before {
+  transform: scaleX(1);
+}
+
+/* Per-network highlight color overrides */
+.social-link.social-x {
+  --social-bg: rgba(29, 161, 242, 0.12);
+}
+
+.social-link:hover,
+.social-link:focus {
+  transform: translateY(-3px) scale(1.06);
+  color: #2e3a7d; /* subtle indigo on hover */
+  box-shadow: 0 8px 20px rgba(46, 58, 125, 0.12);
+  outline: none;
+}
+
+.social-link:focus-visible {
+  box-shadow: 0 0 0 4px rgba(70, 85, 158, 0.12);
+}
+
+/* Use a distinct color for X (formerly Twitter) on hover */
+.social-link.social-x:hover,
+.social-link.social-x:focus {
+  color: #1DA1F2;
+}
+
+@media (max-width: 420px) {
+  .socials {
+    gap: 0.5rem;
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
