@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} — Writing — Nihar Kodkani</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Local Prism assets for reliable syntax highlighting -->
+  <link rel="stylesheet" href="../assets/prism/prism.min.css" />
+  <link rel="stylesheet" href="../assets/prism/plugins/line-numbers/prism-line-numbers.min.css" />
+  <script src="../assets/prism/prism.min.js" defer></script>
+  <script src="../assets/prism/plugins/line-numbers/prism-line-numbers.min.js" defer></script>
+  <script src="../assets/prism/plugins/autoloader/prism-autoloader.min.js" defer></script>
+  <!-- Autoloader will fetch language components from this local folder -->
+  <script>window.Prism = window.Prism || {}; Prism.plugins = Prism.plugins || {}; Prism.plugins.autoloader = Prism.plugins.autoloader || {}; Prism.plugins.autoloader.languages_path = '../assets/prism/components/';</script>
+
+  <script>
+    (function () {
+      function markLanguages() {
+        document.querySelectorAll("pre > code").forEach(function (block) {
+          var hasLanguage = Array.from(block.classList).some(function (c) {
+            return c && c.indexOf && c.indexOf("language-") === 0;
+          });
+          if (!hasLanguage) {
+            block.classList.add("language-c");
+          }
+          // enable Prism's line-numbers plugin for all code blocks
+          if (block.parentElement && block.parentElement.tagName.toLowerCase() === 'pre') {
+            block.parentElement.classList.add('line-numbers');
+          }
+        });
+      }
+
+      function tryHighlight() {
+        if (window.Prism && typeof Prism.highlightAll === "function") {
+          Prism.highlightAll();
+          return true;
+        }
+        return false;
+      }
+
+      function readyAndHighlight() {
+        markLanguages();
+        // try immediately (Prism may already be loaded), otherwise wait for it
+        if (!tryHighlight()) {
+          // Poll briefly for Prism in case the component script loads slightly later
+          var attempts = 0;
+          var id = setInterval(function () {
+            attempts++;
+            if (tryHighlight() || attempts > 40) {
+              clearInterval(id);
+            }
+          }, 50);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", readyAndHighlight);
+      } else {
+        // DOM already ready
+        readyAndHighlight();
+      }
+    })();
+  </script>
+</head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar Nav -->
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../writing.html">Writings</a></li>
+          <li><a href="../reading_list.html">Readings</a></li>
+          <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
+          <li><a href="https://github.com/NiharKod">Software</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Post Content -->
+      <main>
+        <h1>{{ title }}</h1>
+        {% if date %}
+        <p style="color:#555; font-size: 13px; margin-top: -0.3rem; margin-bottom: 1.4rem;">
+          {{ date }}
+        </p>
+        {% endif %}
+
+        {{ content | safe }}
+      </main>
+    </div>
+  </body>
+</html>

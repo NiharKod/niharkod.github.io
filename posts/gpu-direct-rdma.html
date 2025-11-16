@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPU Direct RDMA — Writing — Nihar Kodkani</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Local Prism assets for reliable syntax highlighting -->
+  <link rel="stylesheet" href="../assets/prism/prism.min.css" />
+  <link rel="stylesheet" href="../assets/prism/plugins/line-numbers/prism-line-numbers.min.css" />
+  <script src="../assets/prism/prism.min.js" defer></script>
+  <script src="../assets/prism/plugins/line-numbers/prism-line-numbers.min.js" defer></script>
+  <script src="../assets/prism/plugins/autoloader/prism-autoloader.min.js" defer></script>
+  <script src="../assets/prism/components/prism-c.min.js" defer></script>
+  <script>window.Prism = window.Prism || {}; Prism.plugins = Prism.plugins || {}; Prism.plugins.autoloader = Prism.plugins.autoloader || {}; Prism.plugins.autoloader.languages_path = '../assets/prism/components/';</script>
+
+  <script>
+    (function () {
+      function markLanguages() {
+        document.querySelectorAll("pre > code").forEach(function (block) {
+          var hasLanguage = Array.from(block.classList).some(function (c) {
+            return c && c.indexOf && c.indexOf("language-") === 0;
+          });
+          if (!hasLanguage) {
+            block.classList.add("language-c");
+          }
+          if (block.parentElement && block.parentElement.tagName.toLowerCase() === 'pre') {
+            block.parentElement.classList.add('line-numbers');
+          }
+        });
+      }
+
+      function tryHighlight() {
+        if (window.Prism && typeof Prism.highlightAll === "function") {
+          Prism.highlightAll();
+          return true;
+        }
+        return false;
+      }
+
+      function readyAndHighlight() {
+        markLanguages();
+        // try immediately (Prism may already be loaded), otherwise wait for it
+        if (!tryHighlight()) {
+          // Poll briefly for Prism in case the component script loads slightly later
+          var attempts = 0;
+          var id = setInterval(function () {
+            attempts++;
+            if (tryHighlight() || attempts > 40) {
+              clearInterval(id);
+            }
+          }, 50);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", readyAndHighlight);
+      } else {
+        // DOM already ready
+        readyAndHighlight();
+      }
+    })();
+  </script>
+</head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar Nav -->
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../writing.html">Writings</a></li>
+          <li><a href="../reading_list.html">Readings</a></li>
+          <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
+          <li><a href="https://github.com/NiharKod">Software</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Post Content -->
+      <main>
+        <h1>GPU Direct RDMA</h1>
+        
+        <p style="color:#555; font-size: 13px; margin-top: -0.3rem; margin-bottom: 1.4rem;">
+          2025-01-08
+        </p>
+        
+
+        <p>GPU Direct RDMA is my favorite kind of fake technical lorem ipsum.</p>
+<p>In a traditional cluster, every packet takes the scenic route:
+GPU → CPU memory → NIC → network → NIC → CPU memory → GPU. With GPU Direct RDMA, the NIC can talk to GPU memory directly, skipping a couple of layovers and cutting down latency.</p>
+<h2>Why should anyone care?</h2>
+<p>For small messages, the overhead dominates. If the per-hop latency is ( \ell ) and the CPU bounce adds another ( 2\ell ), then the end-to-end latency goes from roughly</p>
+<p>[
+T_{\text{baseline}} \approx 4\ell
+]</p>
+<p>to</p>
+<p>[
+T_{\text{gdr}} \approx 2\ell,
+]</p>
+<p>which is the sort of napkin math that makes systems people suspiciously happy.</p>
+<p>In real systems, it’s messier, but the idea is the same: fewer copies, fewer context switches, fewer chances to regret your life choices at 3 a.m. while profiling an all-reduce.</p>
+<h2>Tiny pseudo-example</h2>
+<p>Here’s a toy-ish snippet that pretends we have a buffer we want to expose for RDMA:</p>
+<pre><code class="language-c">// extremely fake example – for vibes only
+
+float *buf;
+size_t n = 1 &lt;&lt; 20;
+
+cudaMalloc(&amp;buf, n * sizeof(float));
+cudaMemset(buf, 0, n * sizeof(float));
+
+// register GPU buffer with the NIC via some verbs-like API
+gdr_handle_t handle = gdr_pin_buffer(nic_ctx, buf, n * sizeof(float));
+
+if (!handle) {
+    fprintf(stderr, &quot;failed to register GPU buffer for RDMA\n&quot;);
+    return 1;
+}
+
+// now the remote node can RDMA-read/write directly into `buf`
+// without a CPU bounce buffer in the middle.
+</code></pre>
+      </main>
+    </div>
+  </body>
+</html>

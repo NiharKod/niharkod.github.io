@@ -24,13 +24,13 @@
         <h1>Writing</h1>
 
         <ul>
-          
+          {% for post in posts %}
             <li>
-              <a href="posts/gpu-direct-rdma.html">
-                2025-01-08 — GPU Direct RDMA
+              <a href="posts/{{ post.slug }}.html">
+                {{ post.date }} — {{ post.title }}
               </a>
             </li>
-          
+          {% endfor %}
         </ul>
       </main>
     </div>
