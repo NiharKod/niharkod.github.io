@@ -23,6 +23,51 @@ body {
   max-width: 900px;
 }
 
+/* ========== Page-specific adjustments ========== */
+/* Make pages that use <main class="writing"> look like the home page layout */
+.writing {
+  max-width: 540px; /* match main on home */
+  margin-top: 6rem;
+  margin-left: 8vw;
+}
+
+/* Top header navigation (used by some pages) — style to match sidebar nav links */
+header nav {
+  display: block;
+  margin-left: 8vw;
+  margin-top: 0.6rem;
+}
+
+header nav a {
+  margin-right: 1rem;
+  text-transform: none;
+  font-weight: 600;
+  color: #46559e;
+  font-size: 14px;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.25s ease-in-out;
+}
+
+header nav a:hover {
+  color: #2e3a7d;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
 /* ========== Nav ========== */
 nav ul {
   list-style: none;
