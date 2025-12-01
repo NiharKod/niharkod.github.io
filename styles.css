@@ -42,19 +42,15 @@
   font-display: swap;
 }
 
-
-
-
-
-
 /* ========== Base Typography ========== */
 html,
 body {
   font-family: "et-book", Palatino, "Palatino Linotype", "Palatino LT STD",
                "Book Antiqua", Georgia, serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.45;
-  font-weight: 400;
+  /* Slightly bolder overall text for improved readability */
+  font-weight: 600;
   color: #111;
   background: #fff;
   margin: 0;
@@ -81,6 +77,16 @@ body {
   margin-left: 8vw;
 }
 
+/* Subtitle immediately under the site name */
+.site-subtitle {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-style: italic;
+  color: #555;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
 /* Top header navigation (used by some pages) — style to match sidebar nav links */
 header nav {
   display: block;
@@ -91,9 +97,9 @@ header nav {
 header nav a {
   margin-right: 1rem;
   text-transform: none;
-  font-weight: 600;
-  color: #46559e;
-  font-size: 14px;
+  font-weight: 1000;
+  color: #5f5f5f;
+  font-size: 15px;
   text-decoration: none;
   position: relative;
   transition: color 0.2s ease-in-out;
@@ -132,9 +138,9 @@ nav li {
 /* Smooth underline and color transition */
 nav a {
   position: relative;
-  font-weight: 600;
-  color: #46559e;
-  font-size: 14px;
+  font-weight: 1000;
+  color: #5a5a5a;
+  font-size: 15px;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
@@ -164,9 +170,15 @@ main {
 }
 
 h1 {
-  font-weight: 300;
+  /* headings should remain distinct but a bit bolder */
+  font-weight: 400;
   margin-top: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Specific styling for the site name */
+.site-name {
+  font-weight: 600;
 }
 
 p {
@@ -334,7 +346,7 @@ pre {
 code {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 p code,
