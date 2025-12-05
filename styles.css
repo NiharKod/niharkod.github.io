@@ -52,7 +52,7 @@ body {
   /* Slightly bolder overall text for improved readability */
   font-weight: 600;
   color: #111;
-  background: #fff;
+  background: #fafff7;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
