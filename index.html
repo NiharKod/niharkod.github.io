@@ -8,37 +8,131 @@
   </head>
   <body>
     <div class="layout">
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="writing.html">Writings</a></li>
-          <li><a href="reading_list.html">Readings</a></li>
-          <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
-          <li><a href="https://github.com/NiharKod">Software</a></li>
-        </ul>
-      </nav>
+      <main class="page-shell">
+        <h1 class="hero-name">
+          <span id="name-fallback">Nihar Kodkani</span>
+          <svg
+            id="manim-name"
+            class="manim-name"
+            viewBox="0 0 760 92"
+            aria-hidden="true"
+            role="presentation"
+          >
+            <defs>
+              <clipPath id="name-reveal-clip">
+                <rect id="name-reveal-rect" x="0" y="0" width="0" height="92"></rect>
+              </clipPath>
+            </defs>
+            <text id="manim-name-outline" x="0" y="68">Nihar Kodkani</text>
+            <text id="manim-name-text" x="0" y="68" clip-path="url(#name-reveal-clip)">Nihar Kodkani</text>
+          </svg>
+        </h1>
 
-      <main>
-        <h1><span class="site-name">Nihar Kodkani</span></h1>
-        <p class="site-subtitle">Undergraduate computer scientist and researcher</p>
+        <div class="hero-copy">
+          <p>
+            I study Computer Science at Purdue University. I am broadly interested
+            in collective communication, machine learning systems, and
+            performance engineering for machine learning.
+          </p>
 
-        <p>
-          I study Computer Science at Purdue. I'm broadly interested in collective communication, machine learning systems, and performance engineering for machine learning.
-        </p>
+          <p>
+            Currently, I do motion planning research at
+            <a href="https://commalab.org/">CoMMA Lab</a> and networking at
+            <a href="https://stygianet.cs.purdue.edu/#">STyGIANet</a>.
+            Previously, I developed GPU-accelerated collectives at
+            Argonne National Laboratory.
+          </p>
 
-        <p>
-          Currently, I do motion planning research at <a href="https://commalab.org/"><strong>CoMMA Lab</strong></a> and networking at <a href="https://stygianet.cs.purdue.edu/#"><strong>STyGIANet</strong></a>. Previously, I developed GPU-accelerated collectives at Argonne National Laboratory.
-        </p>
+          <p>
+            This site is where I keep my writing, reading notes, and research
+            links in one place.
+          </p>
+        </div>
 
-        <p>
-          You can reach me at <a href="mailto:nkodakni@purdue.edu">nkodkani@purdue.edu</a>
-        </p>
+        <nav aria-label="Primary">
+          <ul class="home-links">
+            <li><a href="mailto:nkodakni@purdue.edu">Email</a></li>
+            <li><span>&middot;</span></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><span>&middot;</span></li>
+            <li><a href="reading_list.html">Reading List</a></li>
+            <li><span>&middot;</span></li>
+            <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
+            <li><span>&middot;</span></li>
+            <li><a href="https://github.com/NiharKod">GitHub</a></li>
+          </ul>
+        </nav>
+
+        <p class="location-note">Based in West Lafayette, Indiana.</p>
       </main>
-
-      <footer class="site-footer" aria-label="Site footer">
-        <div class="socials" role="group" aria-label="Social links">
-          
-      </footer>
     </div>
+    <script>
+      (function () {
+        const svg = document.getElementById("manim-name");
+        const text = document.getElementById("manim-name-text");
+        const outline = document.getElementById("manim-name-outline");
+        const revealRect = document.getElementById("name-reveal-rect");
+        const fallback = document.getElementById("name-fallback");
+        if (!svg || !text || !outline || !revealRect || !fallback) {
+          return;
+        }
+
+        function clamp(value, min, max) {
+          return Math.min(Math.max(value, min), max);
+        }
+
+        function applyProgress(progress) {
+          const outlineProgress = clamp(progress * 1.35, 0, 1);
+          const fillProgress = clamp(progress * 1.1, 0, 1);
+          const length = outline.getComputedTextLength();
+
+          outline.style.strokeDasharray = String(length);
+          outline.style.strokeDashoffset = String(length * (1 - outlineProgress));
+          revealRect.setAttribute("width", String(760 * fillProgress));
+          text.style.fillOpacity = String(fillProgress);
+          outline.style.opacity = "1";
+          text.style.opacity = "1";
+        }
+
+        let rafId = 0;
+        let animationStart = 0;
+        const animationDuration = 1100;
+
+        function stopAnimation() {
+          if (rafId) {
+            window.cancelAnimationFrame(rafId);
+            rafId = 0;
+          }
+        }
+
+        function renderFrame(now) {
+          const elapsed = now - animationStart;
+          const progress = clamp(elapsed / animationDuration, 0, 1);
+          applyProgress(progress);
+          if (progress < 1) {
+            rafId = window.requestAnimationFrame(renderFrame);
+          }
+        }
+
+        function playAnimation() {
+          stopAnimation();
+          animationStart = performance.now();
+          applyProgress(0);
+          rafId = window.requestAnimationFrame(renderFrame);
+        }
+
+        function startAnimation() {
+          fallback.hidden = true;
+          svg.classList.add("is-ready");
+          playAnimation();
+        }
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(startAnimation);
+        } else {
+          startAnimation();
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading List - Nihar Kodkani</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <div class="page-shell">
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
+            <li><a href="https://github.com/NiharKod">GitHub</a></li>
+          </ul>
+        </nav>
 
-  <title>Nihar</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="layout">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="writing.html">Writings</a></li>
-        <li><a href="reading_list.html">Readings</a></li>
-        <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
-        <li><a href="https://github.com/NiharKod">Software</a></li>
-      </ul>
-    </nav>
-    <main>
-      <section>
-        <h1>Books</h1>
-        <p class="site-subtitle"> Books I am currently reading.</p>
-        <ul>
-          <li>A Fine Balance - Rohinton Mistry</li>
-          <li>Effective Modern C++ - Scott Meyers</li>
-        </ul>
+        <main>
+          <h1>Reading List</h1>
+          <p class="site-subtitle">A running record of books, papers, and pages I have found worth keeping around.</p>
 
-        <h1>Papers</h1>
-        <p class="site-subtitle">Assortment of papers that I read and found interesting.</p>
-        <ul>
-          <li><a href="https://arxiv.org/pdf/2401.09356">Swing: Short-cutting Rings for Higher Bandwidth Allreduce</a></li>
-        </ul>
+          <section class="list-block">
+            <h2>Books</h2>
+            <ul>
+              <li>A Fine Balance - Rohinton Mistry</li>
+              <li>Effective Modern C++ - Scott Meyers</li>
+            </ul>
+          </section>
 
-        <h1>Web Pages</h1>
-        <p class="site-subtitle">Interesting pages I've come accross and have read. A way for me to document track how my interests change over time. </p>
-        <ul>
-          <li><a href="https://www.maxkopinsky.com/computer-science/hardware/2022/08/09/basics-overview.html"> 12-5-2025 Crash Course on Principles of Computer Architecture</a></li>
-          <li><a href="https://spawn-queue.acm.org/doi/pdf/10.1145/3371595.3372264">12-4-2025 - Optimizations in C++ Compilers </a></li>
-          <li><a href="https://pdos.csail.mit.edu/6.828/2023/xv6/book-riscv-rev3.pdf">6-10-2025 — xv6 OS book</a></li>
-          <li><a href="https://davekilian.com/framing-cpp.html">5-30-2025 — 3 Big Ideas Behind C++</a></li>
-          <li><a href="https://mlsys.stanford.edu/">4-28-2025 — Stanford MLSys Seminar</a></li>
-          <li><a href="https://mlsysbook.ai/contents/core/introduction/introduction.html">5-28-2025 — Machine Learning Systems</a></li>
-          <li><a href="https://mlc.ai/">4-27-2025 — Machine Learning Compilers Course</a></li>
-          <li><a href="https://tinkerd.net/blog/machine-learning/cuda-basics/">4-22-2025 — CUDA Kernels for PyTorch</a></li>
-          <li><a href="https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/">4-15-2025 — Cornell Compilers Self-Guided</a></li>
-          <li><a href="https://bernsteinbear.com/pl-resources/">4-14-2025 — PL Resources</a></li>
-          <li><a href="https://rigtorp.se/">4-14-2025 — Erik Rigtorp</a></li>
-          <li><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">4-11-2025 — Operating Systems: Three Easy Pieces</a></li>
-          <li><a href="https://huyenchip.com/ml-interviews-book/">4-11-2025 — Machine Learning Interviews</a></li>
-          <li><a href="https://www-cs.stanford.edu/~rkarthik/DAGAP.pdf">4-3-2025 — Demystifying the American Graduate Admissions Process</a></li>
-          <li><a href="https://www.nand2tetris.org/">4-2-2025 — Nand 2 Tetris</a></li>
-          <li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">3-30-2025 — NVIDIA's Official CUDA C++ Programming Guide</a></li>
-          <li><a href="https://hackingcpp.com/">3-30-2025 — Hacking C++</a></li>
-          <li><a href="https://www.modular.com/blog/democratizing-compute-part-1-deepseeks-impact-on-ai">3-29-2025 — Democratizing AI Compute</a></li>
-          <li><a href="https://federico-busato.github.io/Modern-CPP-Programming">3-29-2025 — Modern C++ Programming</a></li>
-          <li><a href="https://huyenchip.com/2021/09/07/a-friendly-introduction-to-machine-learning-compilers-and-optimizers.html">3-29-2025 — A friendly introduction to machine learning compilers and optimizers</a></li>
-          <li><a href="https://github.com/srush/GPU-Puzzles">3-25-2025 — GPU Puzzles</a></li>
-          <li><a href="https://distill.pub/2021/gnn-intro/">3-12-2025 — A Gentle Introduction to Graph Neural Networks</a></li>
-          <li><a href="https://e2eml.school/transformers.html">2-23-2025 — Transformers from Scratch</a></li>
-          <li><a href="https://modal.com/gpu-glossary">2-23-2025 — GPU Glossary</a></li>
-          <li><a href="https://github.com/taichi-dev/taichi">2-20-2025 — Taichi</a></li>
-        </ul>
-      </section>
-    </main>
-  </div>
+          <section class="list-block">
+            <h2>Papers</h2>
+            <ul>
+              <li><a href="https://arxiv.org/pdf/2401.09356">Swing: Short-cutting Rings for Higher Bandwidth Allreduce</a></li>
+            </ul>
+          </section>
 
-</body>
+          <section class="list-block">
+            <h2>Web Pages</h2>
+            <ul>
+              <li><a href="https://www.maxkopinsky.com/computer-science/hardware/2022/08/09/basics-overview.html">2025-12-05 - Crash Course on Principles of Computer Architecture</a></li>
+              <li><a href="https://spawn-queue.acm.org/doi/pdf/10.1145/3371595.3372264">2025-12-04 - Optimizations in C++ Compilers</a></li>
+              <li><a href="https://pdos.csail.mit.edu/6.828/2023/xv6/book-riscv-rev3.pdf">2025-06-10 - xv6 OS book</a></li>
+              <li><a href="https://davekilian.com/framing-cpp.html">2025-05-30 - 3 Big Ideas Behind C++</a></li>
+              <li><a href="https://mlsys.stanford.edu/">2025-04-28 - Stanford MLSys Seminar</a></li>
+              <li><a href="https://mlsysbook.ai/contents/core/introduction/introduction.html">2025-05-28 - Machine Learning Systems</a></li>
+              <li><a href="https://mlc.ai/">2025-04-27 - Machine Learning Compilers Course</a></li>
+              <li><a href="https://tinkerd.net/blog/machine-learning/cuda-basics/">2025-04-22 - CUDA Kernels for PyTorch</a></li>
+              <li><a href="https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/">2025-04-15 - Cornell Compilers Self-Guided</a></li>
+              <li><a href="https://bernsteinbear.com/pl-resources/">2025-04-14 - PL Resources</a></li>
+              <li><a href="https://rigtorp.se/">2025-04-14 - Erik Rigtorp</a></li>
+              <li><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">2025-04-11 - Operating Systems: Three Easy Pieces</a></li>
+              <li><a href="https://huyenchip.com/ml-interviews-book/">2025-04-11 - Machine Learning Interviews</a></li>
+              <li><a href="https://www-cs.stanford.edu/~rkarthik/DAGAP.pdf">2025-04-03 - Demystifying the American Graduate Admissions Process</a></li>
+              <li><a href="https://www.nand2tetris.org/">2025-04-02 - Nand 2 Tetris</a></li>
+              <li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">2025-03-30 - NVIDIA's Official CUDA C++ Programming Guide</a></li>
+              <li><a href="https://hackingcpp.com/">2025-03-30 - Hacking C++</a></li>
+              <li><a href="https://www.modular.com/blog/democratizing-compute-part-1-deepseeks-impact-on-ai">2025-03-29 - Democratizing AI Compute</a></li>
+              <li><a href="https://federico-busato.github.io/Modern-CPP-Programming">2025-03-29 - Modern C++ Programming</a></li>
+              <li><a href="https://huyenchip.com/2021/09/07/a-friendly-introduction-to-machine-learning-compilers-and-optimizers.html">2025-03-29 - A friendly introduction to machine learning compilers and optimizers</a></li>
+              <li><a href="https://github.com/srush/GPU-Puzzles">2025-03-25 - GPU Puzzles</a></li>
+              <li><a href="https://distill.pub/2021/gnn-intro/">2025-03-12 - A Gentle Introduction to Graph Neural Networks</a></li>
+              <li><a href="https://e2eml.school/transformers.html">2025-02-23 - Transformers from Scratch</a></li>
+              <li><a href="https://modal.com/gpu-glossary">2025-02-23 - GPU Glossary</a></li>
+              <li><a href="https://github.com/taichi-dev/taichi">2025-02-20 - Taichi</a></li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>
-

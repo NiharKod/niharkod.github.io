@@ -3,36 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nihar Kodkani — Writing</title>
-  <link rel="stylesheet" href="styles.css" />
+    <title>Nihar Kodkani - Writing</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="layout">
-      <!-- Sidebar Nav -->
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="writing.html">Writings</a></li>
-          <li><a href="reading_list.html">Readings</a></li>
-          <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
-          <li><a href="https://github.com/NiharKod">Software</a></li>
-        </ul>
-      </nav>
+      <div class="page-shell">
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reading_list.html">Reading List</a></li>
+            <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
+            <li><a href="https://github.com/NiharKod">GitHub</a></li>
+          </ul>
+        </nav>
 
-      <!-- Main Writing Content -->
-      <main>
-        <h1>Writing</h1>
+        <main class="list-block">
+          <h1>Writing</h1>
+          <p class="site-subtitle">Notes and essays on systems, ML, and whatever I am learning.</p>
 
-        <ul>
-          {% for post in posts %}
+          <ul>
+            {% for post in posts %}
             <li>
-              <a href="posts/{{ post.slug }}.html">
-                {{ post.date }} — {{ post.title }}
-              </a>
+              <a href="{{ post.url }}">{{ post.date }} - {{ post.title }}</a>
             </li>
-          {% endfor %}
-        </ul>
-      </main>
+            {% endfor %}
+          </ul>
+        </main>
+      </div>
     </div>
   </body>
 </html>
