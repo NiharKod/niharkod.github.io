@@ -16,10 +16,16 @@ export default function WritingPage() {
 
         <ul>
           {posts.map((post) => (
-            <li key={post.href}>
-              <a href={post.href}>
-                {post.date} - {post.title}
-              </a>
+            <li key={`${post.date}-${post.title}`}>
+              {post.href ? (
+                <a href={post.href}>
+                  {post.date} - {post.title}
+                </a>
+              ) : (
+                <span>
+                  {post.date} - {post.title}
+                </span>
+              )}
             </li>
           ))}
         </ul>

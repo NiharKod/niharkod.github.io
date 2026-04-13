@@ -21,9 +21,8 @@ export const homeLinks = [
 
 export const posts = [
   {
-    title: "GPU Direct RDMA",
-    date: "2025-01-08",
-    href: "/writing/gpu-direct-rdma",
+    title: "Lorem Ipsum",
+    date: "Soon",
   },
 ];
 
