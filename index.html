@@ -3,136 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Nihar Kodkani. Notes on systems, machine learning, and whatever I am learning."
+    />
     <title>Nihar Kodkani</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="layout">
-      <main class="page-shell">
-        <h1 class="hero-name">
-          <span id="name-fallback">Nihar Kodkani</span>
-          <svg
-            id="manim-name"
-            class="manim-name"
-            viewBox="0 0 760 92"
-            aria-hidden="true"
-            role="presentation"
-          >
-            <defs>
-              <clipPath id="name-reveal-clip">
-                <rect id="name-reveal-rect" x="0" y="0" width="0" height="92"></rect>
-              </clipPath>
-            </defs>
-            <text id="manim-name-outline" x="0" y="68">Nihar Kodkani</text>
-            <text id="manim-name-text" x="0" y="68" clip-path="url(#name-reveal-clip)">Nihar Kodkani</text>
-          </svg>
-        </h1>
-
-        <div class="hero-copy">
-          <p>
-            I study Computer Science at Purdue University. I am broadly interested
-            in collective communication, machine learning systems, and
-            performance engineering for machine learning.
-          </p>
-
-          <p>
-            Currently, I do motion planning research at
-            <a href="https://commalab.org/">CoMMA Lab</a> and networking at
-            <a href="https://stygianet.cs.purdue.edu/#">STyGIANet</a>.
-            Previously, I developed GPU-accelerated collectives at
-            Argonne National Laboratory.
-          </p>
-
-          <p>
-            This site is where I keep my writing, reading notes, and research
-            links in one place.
-          </p>
-        </div>
-
+    <div class="wrap">
+      <header>
+        <p class="name"><a href="index.html">Nihar Kodkani</a></p>
         <nav aria-label="Primary">
-          <ul class="home-links">
-            <li><a href="mailto:nkodakni@purdue.edu">Email</a></li>
-            <li><span>&middot;</span></li>
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="writing.html">Writing</a></li>
-            <li><span>&middot;</span></li>
-            <li><a href="reading_list.html">Reading List</a></li>
-            <li><span>&middot;</span></li>
-            <li><a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en">Research</a></li>
-            <li><span>&middot;</span></li>
-            <li><a href="https://github.com/NiharKod">GitHub</a></li>
+            <li><a href="reading.html">Reading</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </nav>
+      </header>
 
-        <p class="location-note">Based in West Lafayette, Indiana.</p>
+      <main>
+        <img
+          class="avatar"
+          src="images/nihar.jpg"
+          alt="Nihar Kodkani"
+          width="140"
+          height="135"
+        />
+        <p>
+          I study Computer Science at Purdue University. I am interested in
+          efficient inference, HW/SW co-design, and ML compilers.
+        </p>
+        <p>
+          I currently work at
+          <a href="https://tenstorrent.com/">Tenstorrent</a> on inference
+          scaling. Previously, I did motion planning research at
+          <a href="https://commalab.org/">CoMMA Lab</a>, networking research
+          at <a href="https://stygianet.cs.purdue.edu/#">STyGIANet</a>, and
+          developed GPU-accelerated collectives at Argonne National
+          Laboratory.
+        </p>
+        <p class="dim">Based in Mountain View, California.</p>
+
+        <hr />
+
+        <h2>Elsewhere</h2>
+        <ul class="inline">
+          <li><a href="mailto:nkodakni@purdue.edu">Email</a></li>
+          <li>
+            <a href="https://scholar.google.com/citations?user=4ha1PB4AAAAJ&hl=en"
+              >Research</a
+            >
+          </li>
+          <li><a href="https://github.com/NiharKod">GitHub</a></li>
+          <li><a href="https://x.com/niharkod">X</a></li>
+        </ul>
       </main>
     </div>
-    <script>
-      (function () {
-        const svg = document.getElementById("manim-name");
-        const text = document.getElementById("manim-name-text");
-        const outline = document.getElementById("manim-name-outline");
-        const revealRect = document.getElementById("name-reveal-rect");
-        const fallback = document.getElementById("name-fallback");
-        if (!svg || !text || !outline || !revealRect || !fallback) {
-          return;
-        }
-
-        function clamp(value, min, max) {
-          return Math.min(Math.max(value, min), max);
-        }
-
-        function applyProgress(progress) {
-          const outlineProgress = clamp(progress * 1.35, 0, 1);
-          const fillProgress = clamp(progress * 1.1, 0, 1);
-          const length = outline.getComputedTextLength();
-
-          outline.style.strokeDasharray = String(length);
-          outline.style.strokeDashoffset = String(length * (1 - outlineProgress));
-          revealRect.setAttribute("width", String(760 * fillProgress));
-          text.style.fillOpacity = String(fillProgress);
-          outline.style.opacity = "1";
-          text.style.opacity = "1";
-        }
-
-        let rafId = 0;
-        let animationStart = 0;
-        const animationDuration = 1100;
-
-        function stopAnimation() {
-          if (rafId) {
-            window.cancelAnimationFrame(rafId);
-            rafId = 0;
-          }
-        }
-
-        function renderFrame(now) {
-          const elapsed = now - animationStart;
-          const progress = clamp(elapsed / animationDuration, 0, 1);
-          applyProgress(progress);
-          if (progress < 1) {
-            rafId = window.requestAnimationFrame(renderFrame);
-          }
-        }
-
-        function playAnimation() {
-          stopAnimation();
-          animationStart = performance.now();
-          applyProgress(0);
-          rafId = window.requestAnimationFrame(renderFrame);
-        }
-
-        function startAnimation() {
-          fallback.hidden = true;
-          svg.classList.add("is-ready");
-          playAnimation();
-        }
-
-        if (document.fonts && document.fonts.ready) {
-          document.fonts.ready.then(startAnimation);
-        } else {
-          startAnimation();
-        }
-      })();
-    </script>
   </body>
 </html>
